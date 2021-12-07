@@ -20,30 +20,36 @@ export async function getPost(slug: string): Promise<Post> {
     .select()
     .eq('slug', slug)
     .single()
-  
-  if (error) console.log(error)
-  else console.log(data)
 
-  return { 
+  if (error) {
+    console.log(error)
+    throw error
+  }
+  else console.log(data)
+  return {
     ...data,
     html: data?.markdown && marked(data.markdown),
   }
 }
 
-export async function getPosts(): Promise<Post[]> {
-  const { data } = await supabase
+export async function getPosts(): Promise<Post[] | null> {
+  const { data, error } = await supabase
     .from('posts')
-    .select()    
+    .select()
+
+  if (error) throw error
   return data
 }
 
-export async function createPost(post: NewPost): Promise<Post> {
-  const { data } = await supabase
+export async function createPost(post: NewPost): Promise<Boolean> {
+  const { data, error } = await supabase
     .from('posts')
     .upsert(post)
-  console.log('upsert: ', post, data)  
-  return { 
-    ...data,
-    html: data?.markdown && marked(data.markdown),
-  } 
+
+  if (error) {
+    console.log('Error creating post: ', error)
+    throw error
+  }
+  else console.log('Upsert complete', post, data)
+  return true
 }

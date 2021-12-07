@@ -1,6 +1,6 @@
 import { useActionData, ActionFunction, redirect, Form } from 'remix'
-import type { ActionFunction } from "remix";
-import { createPost } from '~/post'
+import type { ActionFunction } from 'remix';
+import { createPost } from '~/types/post'
 
 type PostError = {
   title?: boolean;
@@ -26,7 +26,7 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   await createPost({ title, slug, markdown })
-  return redirect('/admin')
+  return redirect('/posts')
 }
 
 export default function NewPost() {
