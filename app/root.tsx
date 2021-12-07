@@ -1,5 +1,5 @@
 import {
-  Link,
+  NavLink,
   Links,
   LiveReload,
   Meta,
@@ -12,11 +12,13 @@ import type { LinksFunction } from "remix";
 
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
+import mainStylesUrl from "~/dist/main.css";
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: globalStylesUrl },
+    { rel: "stylesheet", href: mainStylesUrl },
     {
       rel: "stylesheet",
       href: darkStylesUrl,
@@ -34,10 +36,10 @@ export default function App() {
         <Outlet />
         <nav>
           <p>Site footer nav</p>
-          <ul>
-            <li><Link to="/posts">Posts</Link></li>
-            <li><Link to="/admin">Admin</Link></li>
-            <li><Link to="/admin/new">New post</Link></li>
+          <ul className="flex flex-row gap-8">
+            <li><NavLink className="text-blue-600" to="/posts">Posts</Link></li>
+            <li><NavLink className="text-blue-600" to="/admin">Admin</Link></li>
+            <li><NavLink className="text-blue-600" to="/admin/new">New post</Link></li>
           </ul>
         </nav>
       </Layout>

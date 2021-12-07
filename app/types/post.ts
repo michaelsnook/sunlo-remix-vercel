@@ -1,5 +1,5 @@
 import { marked } from 'marked'
-import supabase from './lib/supabase-client'
+import supabase from '../lib/supabase-client'
 
 export type Post = {
   slug: string;
