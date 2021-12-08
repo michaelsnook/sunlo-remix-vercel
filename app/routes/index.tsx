@@ -60,41 +60,35 @@ export default function Index() {
 
   return (
     <div>
-      <main>
-        <h2>Welcome to Remix!</h2>
-        <p>We're stoked that you're here. 🥳</p>
-        <p>
-          Feel free to take a look around the code to see how Remix does things,
-          it might be a bit different than what you’re used to. When you're
-          ready to dive deeper, we've got plenty of resources to get you
-          up-and-running quickly.
-        </p>
-        <p>
-          Check out all the demos in this starter, and then just delete the{" "}
-          <code>app/routes/demos</code> and <code>app/styles/demos</code>{" "}
-          folders when you're ready to turn this into your next project.
-        </p>
+      <main style={{background: '#444'}} className="text-white bg-blue-600">
+        <article>
+          <h1 className="h1">
+            Sunlo is a social
+            language&nbsp;learning app
+          </h1>
+          <p>
+            Create your own flash cards, or pick from a crowd-sourced pool.
+          </p>
+          <p>
+            The phrase-based approach is meant for people who are immersed
+            enough in the new language that you have friends, colleagues,
+            and family who can help you learn new words and phrases that are
+            useful from day one.
+          </p>
+          <p>
+            (This is not a company, just an app. It's open source and free
+            to use. If you like React/Remix and want to help with the app,{' '}
+            <Link to="https://github.com/michaelsnook/sunlo-remix-vercel">come have a look</Link>
+            .)
+          </p>
+        </article>
+        <aside>
+        </aside> 
       </main>
-      <aside>
-        <h2>Demos In This App</h2>
-        <ul>
-          {data.demos.map(demo => (
-            <li key={demo.to}>
-              <Link to={demo.to} prefetch="intent">
-                {demo.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <h2>Resources</h2>
-        <ul>
-          {data.resources.map(resource => (
-            <li key={resource.url}>
-              <a href={resource.url}>{resource.name}</a>
-            </li>
-          ))}
-        </ul>
-      </aside>
+      
+      <footer>
+
+      </footer>
     </div>
   );
 }
