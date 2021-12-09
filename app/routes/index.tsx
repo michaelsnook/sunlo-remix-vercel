@@ -57,9 +57,9 @@ export default function Index() {
 
   return (
     <div>
-      <main className="md:min-h-85vh text-white bg-blue-800 md:pb-32 md:pt-0 py-10 grid">
-        <div className="container grid md:grid-cols-6 lg:grid-cols-7 grid-cols-3 md:gap-8 lg:gap-20 gap-8 place-self-center">
-          <article className="lg:py-10 grid grid-cols-1 gap-6 col-span-3 lg:col-span-4 place-content-center">
+      <main className="md:min-h-85vh text-white bg-blue-800 pt-10 bp-10 md:pb-32 md:pt-0 grid">
+        <div className="container grid grid-cols-3 md:grid-cols-6 lg:grid-cols-7 gap-8 md:gap-12 lg:gap-20 place-self-center">
+          <article className="md:pt-4 md:pb-10 grid grid-cols-1 gap-6 col-span-3 lg:col-span-4 place-content-center">
             <h1 className="text-4xl">
               Sunlo is a social<br />
               language&nbsp;learning app
@@ -68,14 +68,8 @@ export default function Index() {
               Create your own flash cards, pick from a crowd-sourced pool, or
               send your friend some key phrases to help them learn.
             </p>
-
-            <p className="text-xl">
-              (If you like React/Remix and want to help with the app,{' '}
-              <Link className="underline" to="https://github.com/michaelsnook/sunlo-remix-vercel">come have a look</Link>
-              .)
-            </p>
           </article>
-          <aside className="p-5 col-span-3">
+          <aside className="py-5 px-0 md:px-3 lg:px-5 col-span-3">
             <LoginSignupForm />
           </aside>
         </div>
@@ -87,7 +81,7 @@ export default function Index() {
           {data?.footer ? (
             <ul className="flex flex-col gap-2">
               {data.footer.map(i => (
-                <li><Link className="" to={i.url}>{i.name}</Link></li>
+                <li key={i.url}><Link className="" to={i.url}>{i.name}</Link></li>
               ))}
             </ul>
           )
@@ -99,7 +93,7 @@ export default function Index() {
           {data?.applinks ? (
             <ul className="flex flex-col gap-2">
               {data.applinks.map(i => (
-                <li><Link className="" to={i.url}>{i.name}</Link></li>
+                <li key={i.url}><Link className="" to={i.url}>{i.name}</Link></li>
               ))}
             </ul>
           )
