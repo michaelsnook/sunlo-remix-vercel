@@ -1,11 +1,11 @@
-import type { MetaFunction, LoaderFunction } from "remix";
-import { useLoaderData, json, Link } from "remix";
-import LoginSignupForm from "~/components/loginSignupForm";
+import type { MetaFunction, LoaderFunction } from 'remix'
+import { useLoaderData, json, Link } from 'remix'
+import LoginSignupForm from '~/components/loginSignupForm'
 
 type IndexData = {
-  resources: Array<{ name: string; url: string }>;
-  demos: Array<{ name: string; to: string }>;
-};
+  footer: Array<{ name: string; url: string }>
+  applinks: Array<{ name: string; url: string }>
+}
 
 // Loaders provide data to components and are only ever called on the server, so
 // you can connect to a database or run any server side code you want right next
@@ -13,59 +13,55 @@ type IndexData = {
 // https://remix.run/api/conventions#loader
 export let loader: LoaderFunction = () => {
   let data: IndexData = {
-    resources: [
+    footer: [
       {
-        name: "Remix Docs",
-        url: "https://remix.run/docs"
+        name: 'Home',
+        url: '/',
       },
       {
-        name: "React Router Docs",
-        url: "https://reactrouter.com/docs"
+        name: 'React Router Docs',
+        url: 'https://reactrouter.com/docs',
       },
       {
-        name: "Remix Discord",
-        url: "https://discord.gg/VBePs6d"
-      }
+        name: 'Remix Discord',
+        url: 'https://discord.gg/VBePs6d',
+      },
     ],
-    demos: [
+    applinks: [
       {
-        to: "demos/actions",
-        name: "Actions"
+        name: 'Languages',
+        url: '/languages',
       },
       {
-        to: "demos/about",
-        name: "Nested Routes, CSS loading/unloading"
+        name: 'User Profile',
+        url: '/profile'
       },
-      {
-        to: "demos/params",
-        name: "URL Params and Error Boundaries"
-      }
-    ]
-  };
+    ],
+  }
 
   // https://remix.run/api/remix#json
-  return json(data);
-};
+  return json(data)
+}
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
-    title: "Remix Starter",
-    description: "Welcome to remix!"
-  };
-};
+    title: "Sunlo",
+    description: "A Social Language Learning App"
+  }
+}
 
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
-  let data = useLoaderData<IndexData>();
+  let data = useLoaderData<IndexData>()
 
   return (
     <div>
-      <main className="min-h-90vh text-white bg-blue-800 lg:pb-32 grid">
-        <div className="container grid grid-cols-5 gap-20 place-self-center">
-          <article className="grid grid-cols-1 gap-6 col-span-3 place-content-center">
+      <main className="md:min-h-85vh text-white bg-blue-800 md:pb-32 md:pt-0 py-10 grid">
+        <div className="container grid md:grid-cols-6 lg:grid-cols-7 grid-cols-3 md:gap-8 lg:gap-20 gap-8 place-self-center">
+          <article className="lg:py-10 grid grid-cols-1 gap-6 col-span-3 lg:col-span-4 place-content-center">
             <h1 className="text-4xl">
-              Sunlo is a social
+              Sunlo is a social<br />
               language&nbsp;learning app
             </h1>
             <p className="text-xl">
@@ -79,15 +75,38 @@ export default function Index() {
               .)
             </p>
           </article>
-          <aside className="p-5 col-span-2">
+          <aside className="p-5 col-span-3">
             <LoginSignupForm />
           </aside>
         </div>
       </main>
 
-      <footer className="container py-6">
-        some item
+      <footer className="container py-10 flex flex-row gap-16">
+        <div>
+          <p className="font-bold my-4">Menu</p>
+          {data?.footer ? (
+            <ul className="flex flex-col gap-2">
+              {data.footer.map(i => (
+                <li><Link className="" to={i.url}>{i.name}</Link></li>
+              ))}
+            </ul>
+          )
+            : null
+          }
+        </div>
+        <div>
+          <p className="font-bold my-4">App Links</p>
+          {data?.applinks ? (
+            <ul className="flex flex-col gap-2">
+              {data.applinks.map(i => (
+                <li><Link className="" to={i.url}>{i.name}</Link></li>
+              ))}
+            </ul>
+          )
+            : null
+          }
+        </div>
       </footer>
     </div>
-  );
+  )
 }
