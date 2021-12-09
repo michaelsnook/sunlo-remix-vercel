@@ -9,7 +9,7 @@ export const loader = () => {
 export default function Posts() {
   const posts = useLoaderData<Post[]>()
   console.log(posts)
-  
+
   return (
     <>
       <h1>Posts</h1>

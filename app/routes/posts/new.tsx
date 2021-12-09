@@ -1,15 +1,15 @@
-import { useActionData, ActionFunction, redirect, Form } from 'remix'
-import type { ActionFunction } from 'remix';
+import { useActionData, redirect, Form } from 'remix'
+import type { ActionFunction } from 'remix'
 import { createPost } from '~/types/post'
 
 type PostError = {
-  title?: boolean;
-  slug?: boolean;
-  markdown?: boolean;
+  title?: boolean
+  slug?: boolean
+  markdown?: boolean
 }
 
 export const action: ActionFunction = async ({ request }) => {
-  await new Promise(res => setTimeout(res, 1000));
+  await new Promise(res => setTimeout(res, 1000))
 
   const formData = await request.formData()
   const title = formData.get('title')
@@ -36,15 +36,13 @@ export default function NewPost() {
     <Form method="post">
       <p>
         <label>
-          Post Title:{' '}
-          {errors?.title && <em>Title is required</em>}
+          Post Title: {errors?.title && <em>Title is required</em>}
           <input type="text" name="title" />
         </label>
       </p>
       <p>
         <label>
-          Post Slug:{' '}
-          {errors?.slug && <em>Slug is required</em>}
+          Post Slug: {errors?.slug && <em>Slug is required</em>}
           <input type="text" name="slug" />
         </label>
       </p>

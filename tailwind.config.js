@@ -6,10 +6,7 @@ module.exports = {
     purgeLayersByDefault: true,
     removeDeprecatedGapUtilities: true,
   },
-  purge: [
-    './app/**/*.tsx',
-    './main.css',
-  ],
+  purge: ['./app/**/*.tsx', './main.css'],
   //darkMode: 'media', // or 'class'
   theme: {
     screens: {
@@ -43,7 +40,7 @@ module.exports = {
       maxHeight: {},
       minHeight: {
         '100vh': '100vh',
-        '85vh': '85vh'
+        '85vh': '85vh',
       },
     },
   },

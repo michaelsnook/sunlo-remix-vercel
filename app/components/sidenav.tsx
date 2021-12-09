@@ -8,17 +8,27 @@ export default function Sidenav() {
           Sunlo
         </Link>
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
         </ul>
       </nav>
       <footer>
         <nav>
           <p className="font-bold">Site footer nav</p>
           <ul>
-            <li><NavLink to="/languages">Languages</NavLink></li>
-            <li><NavLink to="/posts">Posts</NavLink></li>
-            <li><NavLink to="/admin">Admin</NavLink></li>
-            <li><NavLink to="/admin/new">New post</NavLink></li>
+            <li>
+              <NavLink to="/languages">Languages</NavLink>
+            </li>
+            <li>
+              <NavLink to="/posts">Posts</NavLink>
+            </li>
+            <li>
+              <NavLink to="/admin">Admin</NavLink>
+            </li>
+            <li>
+              <NavLink to="/admin/new">New post</NavLink>
+            </li>
           </ul>
         </nav>
       </footer>

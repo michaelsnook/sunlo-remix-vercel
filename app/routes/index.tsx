@@ -34,7 +34,7 @@ export let loader: LoaderFunction = () => {
       },
       {
         name: 'User Profile',
-        url: '/profile'
+        url: '/profile',
       },
     ],
   }
@@ -46,8 +46,8 @@ export let loader: LoaderFunction = () => {
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
-    title: "Sunlo",
-    description: "A Social Language Learning App"
+    title: 'Sunlo',
+    description: 'A Social Language Learning App',
   }
 }
 
@@ -61,7 +61,8 @@ export default function Index() {
         <div className="container grid grid-cols-3 md:grid-cols-6 lg:grid-cols-7 gap-8 md:gap-12 lg:gap-20 place-self-center">
           <article className="md:pt-4 md:pb-10 grid grid-cols-1 gap-6 col-span-3 lg:col-span-4 place-content-center">
             <h1 className="text-4xl">
-              Sunlo is a social<br />
+              Sunlo is a social
+              <br />
               language&nbsp;learning app
             </h1>
             <p className="text-xl">
@@ -81,24 +82,28 @@ export default function Index() {
           {data?.footer ? (
             <ul className="flex flex-col gap-2">
               {data.footer.map(i => (
-                <li key={i.url}><Link className="" to={i.url}>{i.name}</Link></li>
+                <li key={i.url}>
+                  <Link className="" to={i.url}>
+                    {i.name}
+                  </Link>
+                </li>
               ))}
             </ul>
-          )
-            : null
-          }
+          ) : null}
         </div>
         <div>
           <p className="font-bold my-4">App Links</p>
           {data?.applinks ? (
             <ul className="flex flex-col gap-2">
               {data.applinks.map(i => (
-                <li key={i.url}><Link className="" to={i.url}>{i.name}</Link></li>
+                <li key={i.url}>
+                  <Link className="" to={i.url}>
+                    {i.name}
+                  </Link>
+                </li>
               ))}
             </ul>
-          )
-            : null
-          }
+          ) : null}
         </div>
       </footer>
     </div>

@@ -9,15 +9,17 @@ export const loader: LoaderFunction = () => {
 }
 
 export default function Posts() {
-  const { data:posts } = useLoaderData<Language[]>()
+  const { data: posts } = useLoaderData<Language[]>()
   console.log(posts)
   return (
     <LayoutSidebar>
       <h1 className="h1">Languages</h1>
       <ul>
-        {posts.map(({name, code}) => (
+        {posts.map(({ name, code }) => (
           <li key={code}>
-            <Link className="hover:underline" to={`/languages/${code}`}>{name} ({code})</Link>
+            <Link className="hover:underline" to={`/languages/${code}`}>
+              {name} ({code})
+            </Link>
           </li>
         ))}
       </ul>

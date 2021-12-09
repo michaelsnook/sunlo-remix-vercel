@@ -7,18 +7,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch
+  useCatch,
 } from 'remix'
 import type { LinksFunction } from 'remix'
-import LayoutBase from '~/layouts/base'
 import mainStylesUrl from '~/dist/main.css'
-
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: mainStylesUrl },
-  ]
+  return [{ rel: 'stylesheet', href: mainStylesUrl }]
 }
 
 // https://remix.run/api/conventions#default-export
@@ -33,7 +29,7 @@ export default function App() {
 
 // https://remix.run/docs/en/v1/api/conventions#errorboundary
 export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
+  console.error(error)
   return (
     <Document title="Error!">
       <div>
@@ -41,8 +37,8 @@ export function ErrorBoundary({ error }: { error: Error }) {
         <p>{error.message}</p>
         <hr />
         <p>
-          Hey, developer, you should replace this with what you want your
-          users to see.
+          Hey, developer, you should replace this with what you want your users
+          to see.
         </p>
       </div>
     </Document>
@@ -61,8 +57,8 @@ export function CatchBoundary() {
           Oops! Looks like you tried to visit a page that you do not have access
           to.
         </p>
-      );
-      break;
+      )
+      break
     case 404:
       message = (
         <p>Oops! Looks like you tried to visit a page that does not exist.</p>
@@ -85,10 +81,10 @@ export function CatchBoundary() {
 
 function Document({
   children,
-  title
+  title,
 }: {
-  children: React.ReactNode;
-  title?: string;
+  children: React.ReactNode
+  title?: string
 }) {
   return (
     <html lang="en">
@@ -103,7 +99,7 @@ function Document({
         {children}
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
   )
