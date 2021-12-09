@@ -57,7 +57,7 @@ export default function Index() {
 
   return (
     <div>
-      <main className="md:min-h-85vh text-white bg-blue-800 pt-10 bp-10 md:pb-32 md:pt-0 grid">
+      <main className="md:min-h-85vh text-white bg-blue-800 pt-10 pb-10 md:pb-24 grid">
         <div className="container grid grid-cols-3 md:grid-cols-6 lg:grid-cols-7 gap-8 md:gap-12 lg:gap-20 place-self-center">
           <article className="md:pt-4 md:pb-10 grid grid-cols-1 gap-6 col-span-3 lg:col-span-4 place-content-center">
             <h1 className="text-4xl">
