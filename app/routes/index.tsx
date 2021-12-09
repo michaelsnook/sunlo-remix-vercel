@@ -1,5 +1,6 @@
 import type { MetaFunction, LoaderFunction } from "remix";
 import { useLoaderData, json, Link } from "remix";
+import LoginSignupForm from "~/components/loginSignupForm";
 
 type IndexData = {
   resources: Array<{ name: string; url: string }>;
@@ -60,34 +61,32 @@ export default function Index() {
 
   return (
     <div>
-      <main style={{background: '#444'}} className="text-white bg-blue-600">
-        <article>
-          <h1 className="h1">
-            Sunlo is a social
-            language&nbsp;learning app
-          </h1>
-          <p>
-            Create your own flash cards, or pick from a crowd-sourced pool.
-          </p>
-          <p>
-            The phrase-based approach is meant for people who are immersed
-            enough in the new language that you have friends, colleagues,
-            and family who can help you learn new words and phrases that are
-            useful from day one.
-          </p>
-          <p>
-            (This is not a company, just an app. It's open source and free
-            to use. If you like React/Remix and want to help with the app,{' '}
-            <Link to="https://github.com/michaelsnook/sunlo-remix-vercel">come have a look</Link>
-            .)
-          </p>
-        </article>
-        <aside>
-        </aside> 
-      </main>
-      
-      <footer>
+      <main className="min-h-90vh text-white bg-blue-800 lg:pb-32 grid">
+        <div className="container grid grid-cols-5 gap-20 place-self-center">
+          <article className="grid grid-cols-1 gap-6 col-span-3 place-content-center">
+            <h1 className="text-4xl">
+              Sunlo is a social
+              language&nbsp;learning app
+            </h1>
+            <p className="text-xl">
+              Create your own flash cards, pick from a crowd-sourced pool, or
+              send your friend some key phrases to help them learn.
+            </p>
 
+            <p className="text-xl">
+              (If you like React/Remix and want to help with the app,{' '}
+              <Link className="underline" to="https://github.com/michaelsnook/sunlo-remix-vercel">come have a look</Link>
+              .)
+            </p>
+          </article>
+          <aside className="p-5 col-span-2">
+            <LoginSignupForm />
+          </aside>
+        </div>
+      </main>
+
+      <footer className="container py-6">
+        some item
       </footer>
     </div>
   );
