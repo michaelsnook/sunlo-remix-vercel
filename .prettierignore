@@ -1,5 +1,7 @@
-.cache
-build
-public
-app/dist
-api/build
+/.cache
+/build
+/public
+/dist
+/api/build
+/public/build
+/app/styles/app.css

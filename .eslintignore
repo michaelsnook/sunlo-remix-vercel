@@ -1,10 +1,5 @@
-node_modules
-
 /.cache
-/.vercel
-/.output
 /build
+/dist
 /public/build
-/api/build
 /app/styles/app.css
-.env

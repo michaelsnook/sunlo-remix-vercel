@@ -1,13 +1,9 @@
-const colors = require('tailwindcss/colors')
-const production = process.env.NODE_ENV === 'production'
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  future: {
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
-  purge: ['./app/**/*.tsx', './main.css'],
-  //darkMode: 'media', // or 'class'
+  mode: 'jit',
+  purge: ['./app/**/*.tsx', './app/**/*.jsx', './app/**/*.js', './app/**/*.ts'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -18,34 +14,32 @@ module.exports = {
       center: true,
       padding: '1.25rem',
     },
-    fontFamily: {
-      sans: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        '"Helvetica Neue"',
-        'Roboto',
-        'Oxygen-Sans',
-        'Ubuntu',
-        'Cantarell',
-        'sans-serif',
-      ],
-      //display: ['"Exo 2"', 'ui-serif'],
-    },
     extend: {
-      colors: {
-        //gray: colors.coolGray,
-        //cyan: colors.cyan,
+      fontFamily: {
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          '"Helvetica Neue"',
+          'Roboto',
+          'Oxygen-Sans',
+          'Ubuntu',
+          'Cantarell',
+          'sans-serif',
+        ],
+        //display: ['"Exo 2"', 'ui-serif'],
       },
-      maxHeight: {},
       minHeight: {
         '100vh': '100vh',
         '85vh': '85vh',
       },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [require('@tailwindcss/forms')],
+  variants: {},
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+    require('daisyui'),
+  ],
 }
