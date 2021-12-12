@@ -23,7 +23,7 @@ function AppSidebar({
   return (
     <nav
       aria-label="Main navigation"
-      className="w-80 p-3 bg-blue-10 h-screen shadow-md "
+      className="fixed top-0 left-0 w-80 p-3 bg-blue-10 h-screen shadow-md "
     >
       <ul className="list-none flex flex-col gap-4">
         <li>{profile?.username}</li>

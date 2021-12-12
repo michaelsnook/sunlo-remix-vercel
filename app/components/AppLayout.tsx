@@ -19,7 +19,7 @@ function AppLayout({
   return (
     <div className="flex flex-row">
       <AppSidebar user={user} profile={profile} decks={decks} />
-      <div style={{ maxWidth: '800px' }} className="flex-grow py-6 px-6">
+      <div style={{ maxWidth: '800px' }} className="ml-80 flex-grow py-6 px-6">
         {children}
       </div>
     </div>
