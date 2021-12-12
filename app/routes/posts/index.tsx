@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from 'remix'
+import AppLayout from '~/components/AppLayout'
 import type { Post } from '~/types/post'
 import { getPosts } from '~/types/post'
 
@@ -11,7 +12,7 @@ export default function Posts() {
   console.log(posts)
 
   return (
-    <>
+    <AppLayout>
       <h1>Posts</h1>
       <ul>
         {posts.map(post => (
@@ -20,6 +21,6 @@ export default function Posts() {
           </li>
         ))}
       </ul>
-    </>
+    </AppLayout>
   )
 }

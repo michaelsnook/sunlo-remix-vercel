@@ -1,6 +1,7 @@
 import { useActionData, redirect, Form } from 'remix'
 import type { ActionFunction } from 'remix'
 import { createPost } from '~/types/post'
+import AppLayout from '~/components/AppLayout'
 
 type PostError = {
   title?: boolean
@@ -33,28 +34,39 @@ export default function NewPost() {
   const errors = useActionData()
 
   return (
-    <Form method="post">
-      <p>
-        <label>
-          Post Title: {errors?.title && <em>Title is required</em>}
-          <input type="text" name="title" />
-        </label>
-      </p>
-      <p>
-        <label>
-          Post Slug: {errors?.slug && <em>Slug is required</em>}
-          <input type="text" name="slug" />
-        </label>
-      </p>
-      <p>
-        <label htmlFor="markdown">Markdown:</label>{' '}
-        {errors?.markdown && <em>Markdown is required</em>}
-        <br />
-        <textarea id="markdown" rows={20} name="markdown" />
-      </p>
-      <p>
-        <button type="submit">Create Post</button>
-      </p>
-    </Form>
+    <AppLayout>
+      <Form method="post" className="flex flex-col gap-4">
+        <p className="flex flex-col gap-1">
+          <label className="font-bold px-3">
+            Post Title: {errors?.title && <em>Title is required</em>}
+          </label>
+          <input type="text" className="border rounded p-3" name="title" />
+        </p>
+        <p className="flex flex-col gap-1">
+          <label className="font-bold px-3">
+            Post Slug: {errors?.slug && <em>Slug is required</em>}
+          </label>
+          <input type="text" className="border rounded p-3" name="slug" />
+        </p>
+        <p className="flex flex-col gap-1">
+          <label className="font-bold px-3" htmlFor="markdown">
+            Markdown:
+          </label>{' '}
+          {errors?.markdown && <em>Markdown is required</em>}
+          <br />
+          <textarea
+            id="markdown"
+            rows={20}
+            name="markdown"
+            className="p-3 border rounded"
+          />
+        </p>
+        <p>
+          <button className="btn btn-primary" type="submit">
+            Create Post
+          </button>
+        </p>
+      </Form>
+    </AppLayout>
   )
 }

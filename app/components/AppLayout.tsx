@@ -1,22 +1,28 @@
 import { PropsWithChildren, ReactElement } from 'react'
 import type { User } from '@supabase/supabase-js'
-import AppHeader from './AppHeader'
+import type { ProfileAttrs } from '~/types/profile'
+import type { Deck } from '~/types/deck'
+import AppSidebar from './AppSidebar'
 
 type AppLayoutProps = {
   user?: User
+  profile?: ProfileAttrs
+  decks?: Deck[]
 }
 
 function AppLayout({
   user,
+  profile,
+  decks,
   children,
 }: PropsWithChildren<AppLayoutProps>): ReactElement {
   return (
-    <>
-      <div className="header">
-        <AppHeader user={user} />
+    <div className="flex flex-row">
+      <AppSidebar user={user} profile={profile} decks={decks} />
+      <div style={{ maxWidth: '800px' }} className="flex-grow py-6 px-6">
+        {children}
       </div>
-      <div className="container mx-auto">{children}</div>
-    </>
+    </div>
   )
 }
 
