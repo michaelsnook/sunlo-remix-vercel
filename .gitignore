@@ -8,3 +8,5 @@ node_modules
 /api/build
 /app/styles/app.css
 .env
+
+.DS_Store
