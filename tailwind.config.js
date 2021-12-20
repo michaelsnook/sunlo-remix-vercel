@@ -1,6 +1,10 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./app/**/*.tsx', './app/**/*.jsx', './app/**/*.js', './app/**/*.ts'],
+  content: [
+    './app/**/*.tsx',
+    './app/**/*.jsx',
+    './app/**/*.js',
+    './app/**/*.ts',
+  ],
   theme: {
     screens: {
       sm: '640px',
@@ -24,7 +28,6 @@ module.exports = {
           'Cantarell',
           'sans-serif',
         ],
-        //display: ['"Exo 2"', 'ui-serif'],
       },
       minHeight: {
         '100vh': '100vh',
@@ -32,11 +35,10 @@ module.exports = {
       },
     },
   },
-  variants: {},
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
     require('daisyui'),
   ],
   daisyui: {
