@@ -1,8 +1,6 @@
 import type { MetaFunction, LoaderFunction } from 'remix'
 import { useLoaderData, json, Link } from 'remix'
 
-import StarterKit from '~/components/StarterKit'
-
 type IndexData = {
   resources: Array<{ name: string; url: string }>
   footer: Array<{ name: string; url: string }>

@@ -1,6 +1,6 @@
 import { MetaFunction } from 'remix'
 import SiteLayout from '~/components/SiteLayout'
-import StarterKit from '~/components/StarterKit'
+import MastHead from '~/components/MastHead'
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
@@ -15,7 +15,7 @@ export default function Welcome() {
     <SiteLayout>
       <div className="min-h-screen flex flex-col justify-center items-center relative">
         <main className="">
-          <StarterKit />
+          <MastHead />
           <p>
             You're signed-up now. Please check your email for the activation
             email
