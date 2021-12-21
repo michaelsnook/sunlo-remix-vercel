@@ -10,8 +10,8 @@ import { supabase } from '../lib/supabase.server'
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
-    title: 'Remix Starter Kit - Sign In or Sign Up',
-    description: 'Welcome to Remix Starter Kit',
+    title: 'Sunlo - Sign In or Sign Up',
+    description: 'Welcome to Sunlo, the Social Language Learning app',
   }
 }
 

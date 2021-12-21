@@ -1,6 +1,6 @@
-# Remix + Supabase starter
+# Sunlo
 
-From [one-aalam/remix-starter-kit](https://github.com/one-aalam/remix-starter-kit).
+App based on [one-aalam/remix-starter-kit](https://github.com/one-aalam/remix-starter-kit).
 
 _Remix Starter Kit_ is an opinionated boilerplate based off of [Remix](https://remix.run/), with all the bells and whistles you would want ready, up and running when starting a Remix project with Supabase.
 
@@ -10,15 +10,14 @@ Out of the box you get all the `essentials`
 - **Tailwind CSS** for quick styling without getting out of your HTML
 - **Daisy UI** for pre-made TailwindCSS component classes
 - **Tailwind UI + React Hot Toast** for robust headless logic you can use for components like Dialog/Modal, Dropdown, List, etc.
-- **WorkSans** as the App font
 - **Icons through React-icons** for on-demand, tree-shakeable icons
 - **ESLint** for static code analysis
 - **Prettier** for code formatting
 
-with [Supabase](https://supabase.io/) support
+with [Supabase](https://supabase.io/)
 
 - **Authentication System** with Supabase GoTrue
-- **User Profiles** available on `/profile` as an example for Supabase PostgREST (CRUD API) (_retreival-only for now_)
+- **User Profiles** available on `/profile` as an example for Supabase PostgREST (CRUD API)
 - **User Avatar** with Supbase Storage(AWS S3 backed effortless uploads) available on `/images/[bucket-name]/[image-name]` resource routes (_retreival-only for now_)
 
 and a bunch of pre-made, hand-rolled(easily replace-able) components, that you almost always end up installing/using for any non-trivial project
@@ -57,6 +56,8 @@ Open up [http://localhost:3000](http://localhost:3000) and you should be ready t
 If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
 
 Check `package.json` for the full list of commands available at your disposal.
+
+## For Database Permissions
 
 Use this RLS policy
 

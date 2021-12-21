@@ -114,6 +114,8 @@ function Document({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         {title ? <title>{title}</title> : null}
+        <link rel="icon" href="favicon.png" type="image/png" />
+        <meta name="theme-color" content="#570df8" />
         <Meta />
         <Links />
       </head>
